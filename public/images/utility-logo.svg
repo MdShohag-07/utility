@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simple, clean logo for Utility site -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" aria-labelledby="title desc" role="img">
+  <title id="title">Utility Logo</title>
+  <desc id="desc">A modern wordmark with a geometric U mark</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <!-- U mark -->
+  <g transform="translate(10,8)">
+    <rect x="0" y="0" width="44" height="44" rx="10" fill="url(#g)"/>
+    <path d="M12 14 v11 c0 7 5 12 10 12s10-5 10-12 V14" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- Wordmark -->
+  <g fill="#0f172a" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="0.5">
+    <text x="70" y="38">Utility</text>
+  </g>
+</svg>
+
+

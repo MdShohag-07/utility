@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility App - Deployed to Firebase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 2rem;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            color: #0067b2;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .status {
+            background: #e8f5e8;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .feature h3 {
+            color: #0067b2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #0067b2;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 0.5rem;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #0056a3;
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🚀</div>
+        <h1>Utility App</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Successfully Deployed to Firebase!</p>
+        
+        <div class="status">
+            <strong>✅ Deployment Status:</strong> Live and Running
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🔥 Firebase Hosting</h3>
+                <p>Fast, secure hosting with global CDN</p>
+            </div>
+            <div class="feature">
+                <h3>🗄️ Firestore Database</h3>
+                <p>NoSQL database ready for your data</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Firebase Functions</h3>
+                <p>Serverless backend functions</p>
+            </div>
+            <div class="feature">
+                <h3>🔗 Data Connect</h3>
+                <p>Advanced data operations</p>
+            </div>
+        </div>
+        
+        <div class="info">
+            <strong>📋 Project Details:</strong><br>
+            <strong>Project ID:</strong> utility-app-2025<br>
+            <strong>Hosting URL:</strong> https://utility-app-2025.web.app<br>
+            <strong>Firebase Console:</strong> <a href="https://console.firebase.google.com/project/utility-app-2025/overview" target="_blank">Open Console</a>
+        </div>
+        
+        <div style="margin: 2rem 0;">
+            <a href="https://console.firebase.google.com/project/utility-app-2025/overview" class="btn" target="_blank">
+                🔧 Firebase Console
+            </a>
+            <a href="https://firebase.google.com/docs" class="btn" target="_blank">
+                📚 Documentation
+            </a>
+        </div>
+        
+        <div class="info">
+            <strong>💡 Next Steps:</strong><br>
+            • Upgrade to Blaze plan for full Functions deployment<br>
+            • Configure Firestore database<br>
+            • Set up custom domain<br>
+            • Integrate full Laravel functionality
+        </div>
+        
+        <div class="footer">
+            <p>Built with ❤️ using Laravel and Firebase</p>
+            <p>Deployed on: <span id="deployDate"></span></p>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('deployDate').textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>

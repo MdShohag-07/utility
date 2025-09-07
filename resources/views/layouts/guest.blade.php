@@ -16,8 +16,10 @@
 
 
         <!-- Scripts and Styles -->
-        {{-- Ensure this includes your main CSS and JS for forms/base styles --}}
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        @if(app()->environment('local'))
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @endif
         @stack('styles')
     </head>
     <body class="font-sans text-gray-900 antialiased">

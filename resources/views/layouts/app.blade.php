@@ -18,11 +18,12 @@
     {{-- Remove the old asset() link for style.css --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 
-    {{-- Use the @vite directive to include both CSS and JS entry points --}}
-    {{-- This tells Vite to load resources/css/app.css and resources/js/app.js --}}
-    {{-- Make SURE your custom styles are placed INSIDE resources/css/app.css --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- === END CORRECTION === --}}
+    {{-- Use direct CSS link for production --}}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{-- Fallback to Vite in development --}}
+    @if(app()->environment('local'))
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
 
     {{-- Stack for page-specific styles --}}
     @stack('styles')

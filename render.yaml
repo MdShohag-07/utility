@@ -5,9 +5,11 @@ services:
     plan: free
     buildCommand: |
       composer install --no-dev --optimize-autoloader
+      npm install
+      npm run build
       php artisan key:generate --force
       php artisan migrate --force
-      php artisan db:seed --force
+      php seed_production.php
       php artisan storage:link
       php artisan config:cache
       php artisan route:cache

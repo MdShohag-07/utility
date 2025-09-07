@@ -20,6 +20,9 @@
 
     {{-- Use Vite for all environments to get compiled Tailwind CSS --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    {{-- Fallback CSS in case Vite fails --}}
+    <link rel="stylesheet" href="{{ asset('css/fallback.css') }}" type="text/css">
 
     {{-- Stack for page-specific styles --}}
     @stack('styles')

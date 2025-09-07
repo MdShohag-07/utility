@@ -1,56 +1,64 @@
 <?php
-// Simple router for Railway deployment
-$requestUri = $_SERVER['REQUEST_URI'];
-$path = parse_url($requestUri, PHP_URL_PATH);
+// Very simple index.php for Railway
+header('Content-Type: text/html; charset=utf-8');
 
-// Remove leading slash
+// Check if this is a direct file request
+$requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+$path = parse_url($requestUri, PHP_URL_PATH);
 $path = ltrim($path, '/');
 
-// If it's a static file request, serve it directly
-if ($path && file_exists(__DIR__ . '/' . $path) && !is_dir(__DIR__ . '/' . $path)) {
-    $mimeType = mime_content_type(__DIR__ . '/' . $path);
-    header('Content-Type: ' . $mimeType);
-    readfile(__DIR__ . '/' . $path);
+// If requesting a specific file, serve it
+if ($path && $path !== 'index.php' && file_exists(__DIR__ . '/' . $path)) {
+    if (strpos($path, '.php') !== false) {
+        include __DIR__ . '/' . $path;
+    } else {
+        $mimeType = mime_content_type(__DIR__ . '/' . $path);
+        header('Content-Type: ' . $mimeType);
+        readfile(__DIR__ . '/' . $path);
+    }
     exit;
 }
 
-// If it's the root or index, show our test page
-if (empty($path) || $path === 'index.html') {
-    readfile(__DIR__ . '/index.html');
-    exit;
-}
-
-// For PHP files, include them
-if (strpos($path, '.php') !== false && file_exists(__DIR__ . '/' . $path)) {
-    include __DIR__ . '/' . $path;
-    exit;
-}
-
-// For Laravel routes, try to bootstrap Laravel
-try {
-    // Set environment variables
-    putenv('APP_ENV=production');
-    putenv('APP_DEBUG=false');
-    putenv('APP_KEY=base64:6q6Eovlou6ZO4afG8/Ctt+49VdB3ZormqItTqgic1G0=');
-    putenv('DB_CONNECTION=sqlite');
-    putenv('DB_DATABASE=/tmp/database.sqlite');
-    
-    // Bootstrap Laravel
-    require_once __DIR__ . '/../vendor/autoload.php';
-    $app = require_once __DIR__ . '/../bootstrap/app.php';
-    
-    // Handle the request
-    $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
-    $request = Illuminate\Http\Request::capture();
-    $response = $kernel->handle($request);
-    $response->send();
-    $kernel->terminate($request, $response);
-} catch (Exception $e) {
-    // If Laravel fails, show error page
-    http_response_code(500);
-    echo "<h1>Laravel Error</h1>";
-    echo "<p>Error: " . htmlspecialchars($e->getMessage()) . "</p>";
-    echo "<p>File: " . htmlspecialchars($e->getFile()) . "</p>";
-    echo "<p>Line: " . $e->getLine() . "</p>";
-}
+// Default response - show simple page
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Railway Laravel App</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; padding: 15px; border-radius: 5px; }
+        .info { background: #d1ecf1; border: 1px solid #bee5eb; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Railway Laravel App</h1>
+    
+    <div class="success">
+        <h3>✅ Server is Running!</h3>
+        <p>PHP is working on Railway. Current time: <?php echo date('Y-m-d H:i:s'); ?></p>
+    </div>
+    
+    <div class="info">
+        <h3>🧪 Test Links:</h3>
+        <ul>
+            <li><a href="/simple.php">Simple PHP Test</a></li>
+            <li><a href="/test.php">PHP Info Test</a></li>
+            <li><a href="/health.php">Health Check</a></li>
+        </ul>
+    </div>
+    
+    <div class="info">
+        <h3>🔧 Laravel Status:</h3>
+        <ul>
+            <li>Vendor Directory: <?php echo file_exists('../vendor/autoload.php') ? '✅ Exists' : '❌ Missing'; ?></li>
+            <li>Bootstrap: <?php echo file_exists('../bootstrap/app.php') ? '✅ Exists' : '❌ Missing'; ?></li>
+            <li>Database: <?php echo file_exists('/tmp/database.sqlite') ? '✅ Exists' : '❌ Missing'; ?></li>
+        </ul>
+    </div>
+    
+    <p><strong>Next Step:</strong> If all checks pass, we'll enable Laravel routing.</p>
+</body>
+</html>

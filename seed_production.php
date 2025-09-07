@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Hash;
 
 echo "Seeding production database...\n";
 
+// Run any pending migrations
+echo "Running pending migrations...\n";
+$exitCode = 0;
+passthru('php artisan migrate --force', $exitCode);
+if ($exitCode !== 0) {
+    echo "Migration failed with exit code: $exitCode\n";
+    exit(1);
+}
+
 // Create admin user
 $admin = User::firstOrCreate(
     ['email' => 'admin@example.com'],

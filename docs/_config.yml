@@ -1,0 +1,14 @@
+title: "Utility App - Laravel Application"
+description: "A comprehensive Laravel application with admin panel, user management, and PDF generation features"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# GitHub Pages settings
+baseurl: "/utility"
+url: "https://mdshohag-07.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge

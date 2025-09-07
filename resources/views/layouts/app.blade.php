@@ -18,8 +18,10 @@
     {{-- Remove the old asset() link for style.css --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 
-    {{-- Use direct CSS link for production --}}
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{-- Force CSS loading for all environments --}}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+    {{-- Additional fallback for production --}}
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
     {{-- Fallback to Vite in development --}}
     @if(app()->environment('local'))
         @vite(['resources/css/app.css', 'resources/js/app.js'])

@@ -41,6 +41,9 @@ RUN chown -R www-data:www-data /var/www
 RUN chmod -R 755 /var/www/storage
 RUN chmod -R 755 /var/www/bootstrap/cache
 
+# Create .env file from .env.example if it doesn't exist
+RUN if [ ! -f .env ]; then cp .env.example .env; fi
+
 # Generate application key
 RUN php artisan key:generate --force
 

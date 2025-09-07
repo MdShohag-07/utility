@@ -28,10 +28,26 @@ $admin = User::firstOrCreate(
         'last_name' => 'User',
         'password' => Hash::make('adminpassword'),
         'role' => 'admin',
+        'email_verified_at' => now(),
     ]
 );
 
 echo "Admin user created/updated: {$admin->email}\n";
+
+// Create regular user
+$user = User::firstOrCreate(
+    ['email' => 'user@example.com'],
+    [
+        'username' => 'testuser',
+        'first_name' => 'Test',
+        'last_name' => 'User',
+        'password' => Hash::make('password'),
+        'role' => 'user',
+        'email_verified_at' => now(),
+    ]
+);
+
+echo "User created/updated: {$user->email}\n";
 
 // Create default settings
 $settings = [
@@ -50,3 +66,4 @@ foreach ($settings as $key => $value) {
 
 echo "Production seeding completed!\n";
 echo "Admin login: admin@example.com / adminpassword\n";
+echo "User login: user@example.com / password\n";

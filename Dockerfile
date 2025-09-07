@@ -33,6 +33,13 @@ COPY --chown=www-data:www-data . /var/www
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
+# Install Node.js and npm for building assets
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
+
+# Install npm dependencies and build assets
+RUN npm install && npm run build
+
 # Create database directory and file
 RUN mkdir -p /var/www/database && touch /var/www/database/database.sqlite
 

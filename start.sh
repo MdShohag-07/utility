@@ -1,21 +1,28 @@
 #!/bin/bash
 
+# Set environment variables
+export APP_ENV=production
+export APP_DEBUG=false
+export APP_KEY=base64:6q6Eovlou6ZO4afG8/Ctt+49VdB3ZormqItTqgic1G0=
+export DB_CONNECTION=sqlite
+export DB_DATABASE=/tmp/database.sqlite
+
 # Create database directory if it doesn't exist
 mkdir -p /tmp
 
-# Generate application key if not set
-if [ -z "$APP_KEY" ]; then
-    php artisan key:generate --force
-fi
-
-# Run database migrations
+# Run Laravel migrations and seeding
 php artisan migrate --force
+php artisan db:seed --force
 
-# Clear and cache configuration
+# Clear caches
 php artisan config:clear
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
 
-# Start the application
-php artisan serve --host=0.0.0.0 --port=$PORT
+# Create storage link
+php artisan storage:link
+
+# Start the server
+cd public
+php -S 0.0.0.0:$PORT index.php

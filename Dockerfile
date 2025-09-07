@@ -49,7 +49,8 @@ RUN php artisan key:generate --force
 
 # Run migrations and seed
 RUN php artisan migrate --force
-RUN php artisan db:seed --force
+# Seed production database with essential data
+RUN php seed_production.php
 
 # Create storage link
 RUN php artisan storage:link

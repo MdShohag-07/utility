@@ -36,9 +36,9 @@
                     <div class="section-image">
                         <img src="{{ $settings['hp_account_image_url'] ?? asset('images/utility-logo.svg') }}" alt="Account Management" class="section-img">
                     </div>
-                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
         {{-- Internet Services Section --}}
         <section class="content-section internet-section">
@@ -91,8 +91,8 @@
                         <p class="service-description">Mobile plans with nationwide coverage.</p>
                     </div>
                 </div>
-                </div>
-            </section>
+            </div>
+        </section>
 
     </div>
 @endsection

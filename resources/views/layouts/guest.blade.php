@@ -16,7 +16,7 @@
 
 
         <!-- Scripts and Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
         @stack('styles')
     </head>
     <body class="font-sans text-gray-900 antialiased">

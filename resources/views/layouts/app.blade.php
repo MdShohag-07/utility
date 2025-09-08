@@ -18,11 +18,8 @@
     {{-- Remove the old asset() link for style.css --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 
-    {{-- Use Vite for all environments to get compiled Tailwind CSS --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
-    {{-- Fallback CSS in case Vite fails --}}
-    <link rel="stylesheet" href="{{ asset('css/fallback.css') }}" type="text/css">
+    {{-- Simple direct CSS - no build system needed --}}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
 
     {{-- Stack for page-specific styles --}}
     @stack('styles')

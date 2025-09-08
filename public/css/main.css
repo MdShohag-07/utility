@@ -1,0 +1,643 @@
+/* Main CSS - Direct styling without build system */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.7em;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #111;
+}
+
+h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1.2em;
+    color: #555;
+}
+
+a {
+    color: #005eb8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00a9e0;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container */
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #005eb8;
+    color: #ffffff;
+    border-color: #005eb8;
+}
+
+.btn-primary:hover {
+    background-color: #004a9a;
+    border-color: #004a9a;
+    color: #ffffff;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: #005eb8;
+    border-color: #005eb8;
+}
+
+.btn-outline-primary:hover {
+    background-color: #005eb8;
+    color: #ffffff;
+    border-color: #005eb8;
+}
+
+/* Header Styles */
+.spectrum-header, header {
+    background-color: #041E42;
+    color: #ffffff;
+    border-bottom: 1px solid #083369;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header-logo img {
+    max-height: 28px;
+    display: block;
+}
+
+.header-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.utility-nav ul {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.utility-nav a {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.utility-nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.main-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.action-button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.4rem;
+    transition: color 0.2s ease;
+}
+
+.action-button:hover {
+    color: #ffffff;
+}
+
+/* Homepage Layout */
+.user-dashboard-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 0;
+    background-color: #ffffff;
+    min-height: calc(100vh - 140px);
+}
+
+.public-home-dashboard .dashboard-main-content {
+    padding: 1rem;
+    background-color: #f4f4f4;
+}
+
+.public-home-dashboard .dashboard-sidebar {
+    border-right: 1px solid #e1e1e1;
+    background-color: #f8f9fa;
+}
+
+/* Account Section */
+.account-section {
+    padding: 3rem 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+/* Internet Section */
+.internet-section {
+    padding: 4rem 0;
+    background-color: #ffffff;
+    color: #333333;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+.internet-section-text h2 {
+    color: #111;
+}
+
+.internet-section-text p {
+    color: #555;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+}
+
+.md\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gap-8 {
+    gap: 2rem;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Typography Classes */
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-gray-800 {
+    color: #1f2937;
+}
+
+.text-gray-600 {
+    color: #4b5563;
+}
+
+.text-gray-500 {
+    color: #6b7280;
+}
+
+.text-blue-600 {
+    color: #2563eb;
+}
+
+.mb-3 {
+    margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+/* Flexbox */
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+/* Display */
+.hidden {
+    display: none;
+}
+
+.md\:block {
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+/* Sizing */
+.max-w-md {
+    max-width: 28rem;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.rounded {
+    border-radius: 0.25rem;
+}
+
+.max-w-full {
+    max-width: 100%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+/* Hover Effects */
+.hover\:underline:hover {
+    text-decoration: underline;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+/* Footer */
+.spectrum-footer {
+    background: #041E42;
+    color: #f0f0f0;
+    padding: 50px 0 20px 0;
+    font-size: 0.85rem;
+}
+
+.footer-nav-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-nav-col h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-nav-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav-col ul li {
+    margin-bottom: 0.7rem;
+}
+
+.footer-nav-col ul li a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+.footer-nav-col ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-bottom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+/* Dashboard Layout */
+.dashboard-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    padding: 1.5rem 1rem;
+    background-color: #f8f9fa;
+    border-right: 1px solid #e1e1e1;
+}
+
+.dashboard-sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard-sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333333;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dashboard-sidebar nav ul li a i {
+    width: 25px;
+    margin-right: 10px;
+    text-align: center;
+    color: #666666;
+    font-size: 1.1rem;
+}
+
+.dashboard-sidebar nav ul li a:hover {
+    background-color: #e9ecef;
+    color: #005eb8;
+}
+
+.dashboard-sidebar nav ul li a.active {
+    background-color: #ffffff;
+    color: #005eb8;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.dashboard-main-content {
+    flex-grow: 1;
+    padding: 1.5rem;
+    background-color: #ffffff;
+}
+
+/* Billing Styles */
+.billing-section {
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+}
+
+.billing-section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 0.5rem;
+    padding: 0 1.5rem;
+}
+
+.billing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.billing-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.5rem;
+    text-decoration: none;
+    color: #333333;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.billing-list-item:hover {
+    background-color: #f8f9fa;
+}
+
+.billing-list-item .icon {
+    font-size: 1.1rem;
+    color: #005eb8;
+    margin-right: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.billing-list-item span {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.billing-list-item .arrow {
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    
+    .md\:px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .md\:text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+    
+    .md\:block {
+        display: block;
+    }
+    
+    .md\:py-16 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    
+    .public-home-dashboard .dashboard-main-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .utility-nav {
+        display: none;
+    }
+    
+    .user-dashboard-layout .dashboard-sidebar {
+        width: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .header-right-actions {
+        display: none;
+    }
+    
+    .footer-nav-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-dashboard-layout {
+        display: block;
+    }
+    
+    .user-dashboard-layout .dashboard-sidebar {
+        display: none;
+    }
+    
+    .user-dashboard-layout .dashboard-main-content {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+/* Force styles for production */
+body {
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}
+
+/* Ensure all links are styled */
+a {
+    color: #005eb8 !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #00a9e0 !important;
+}
+
+/* Force button styles */
+.btn, .btn-primary, .btn-outline-primary {
+    display: inline-block !important;
+    padding: 12px 28px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Force header styling */
+.spectrum-header, header {
+    background-color: #041E42 !important;
+    color: #ffffff !important;
+}
+
+.spectrum-header a, header a {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.spectrum-header a:hover, header a:hover {
+    color: #ffffff !important;
+}

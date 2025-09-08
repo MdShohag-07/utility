@@ -16,7 +16,7 @@
 
 
         <!-- Scripts and Styles -->
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/complete.css') }}" type="text/css">
         @stack('styles')
     </head>
     <body class="font-sans text-gray-900 antialiased">

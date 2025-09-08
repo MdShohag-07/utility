@@ -18,8 +18,8 @@
     {{-- Remove the old asset() link for style.css --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 
-    {{-- Simple direct CSS - no build system needed --}}
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
+    {{-- Complete CSS with ALL styles - guaranteed to work --}}
+    <link rel="stylesheet" href="{{ asset('css/complete.css') }}" type="text/css">
 
     {{-- Stack for page-specific styles --}}
     @stack('styles')

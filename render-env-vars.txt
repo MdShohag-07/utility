@@ -1,0 +1,145 @@
+# Render Environment Variables for Utility Billing System
+# Copy these to your Render dashboard under Environment Variables
+
+# ===========================================
+# ESSENTIAL VARIABLES (REQUIRED)
+# ===========================================
+APP_NAME=Utility Billing System
+APP_ENV=production
+APP_KEY=base64:lPgxz7Mp1VoufVTObzAYiiAckeHGgijp5SIQyemgvNg=
+APP_DEBUG=false
+APP_URL=https://utility-7cqv.onrender.com
+
+# ===========================================
+# DATABASE (REQUIRED)
+# ===========================================
+DB_CONNECTION=sqlite
+DB_DATABASE=/opt/render/project/src/database/database.sqlite
+
+# ===========================================
+# CACHE & SESSION (REQUIRED)
+# ===========================================
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+# ===========================================
+# QUEUE (REQUIRED)
+# ===========================================
+QUEUE_CONNECTION=sync
+
+# ===========================================
+# LOGGING (REQUIRED)
+# ===========================================
+LOG_CHANNEL=stack
+LOG_LEVEL=debug
+
+# ===========================================
+# BROADCASTING (REQUIRED)
+# ===========================================
+BROADCAST_DRIVER=log
+
+# ===========================================
+# FILE STORAGE (REQUIRED)
+# ===========================================
+FILESYSTEM_DISK=local
+
+# ===========================================
+# SECURITY (REQUIRED)
+# ===========================================
+BCRYPT_ROUNDS=12
+
+# ===========================================
+# CUSTOM SETTINGS (OPTIONAL)
+# ===========================================
+UTILITY_COMPANY_NAME=Your Utility Company
+UTILITY_COMPANY_ADDRESS=123 Main Street, City, State 12345
+UTILITY_COMPANY_PHONE=(555) 123-4567
+UTILITY_COMPANY_EMAIL=info@yourutility.com
+
+# ===========================================
+# PDF SETTINGS (OPTIONAL)
+# ===========================================
+PDF_ENGINE=dompdf
+PDF_DEFAULT_FONT=Arial
+
+# ===========================================
+# BILLING SETTINGS (OPTIONAL)
+# ===========================================
+DEFAULT_CURRENCY=USD
+DEFAULT_TAX_RATE=0.00
+DEFAULT_DUE_DAYS=30
+
+# ===========================================
+# FEATURE FLAGS (OPTIONAL)
+# ===========================================
+ENABLE_USER_REGISTRATION=true
+ENABLE_EMAIL_VERIFICATION=false
+
+# ===========================================
+# RATE LIMITING (OPTIONAL)
+# ===========================================
+RATE_LIMIT_LOGIN=5
+RATE_LIMIT_API=60
+
+# ===========================================
+# FILE UPLOAD (OPTIONAL)
+# ===========================================
+MAX_FILE_SIZE=10240
+ALLOWED_FILE_TYPES=jpg,jpeg,png,pdf,doc,docx
+
+# ===========================================
+# MAIL CONFIGURATION (OPTIONAL)
+# ===========================================
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@utility-billing.com
+MAIL_FROM_NAME=Utility Billing System
+
+# ===========================================
+# VITE CONFIGURATION (REQUIRED FOR ASSETS)
+# ===========================================
+VITE_APP_NAME=Utility Billing System
+VITE_PUSHER_APP_KEY=
+VITE_PUSHER_HOST=
+VITE_PUSHER_PORT=
+VITE_PUSHER_SCHEME=
+VITE_PUSHER_APP_CLUSTER=
+
+# ===========================================
+# PUSHER (REQUIRED - CAN BE EMPTY)
+# ===========================================
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_HOST=
+PUSHER_PORT=443
+PUSHER_SCHEME=https
+PUSHER_APP_CLUSTER=mt1
+
+# ===========================================
+# CACHE PREFIX (OPTIONAL)
+# ===========================================
+CACHE_PREFIX=
+
+# ===========================================
+# SESSION SETTINGS (OPTIONAL)
+# ===========================================
+SESSION_ENCRYPT=false
+SESSION_PATH=/
+SESSION_DOMAIN=null
+
+# ===========================================
+# LOGGING SETTINGS (OPTIONAL)
+# ===========================================
+LOG_DEPRECATIONS_CHANNEL=null
+
+# ===========================================
+# DEVELOPMENT TOOLS (DISABLE IN PRODUCTION)
+# ===========================================
+DEBUGBAR_ENABLED=false
+TELESCOPE_ENABLED=false

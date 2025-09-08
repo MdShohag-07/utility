@@ -6,7 +6,6 @@ $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
 use App\Models\User;
 use App\Models\Setting;
-use Illuminate\Support\Facades\Hash;
 
 echo "Seeding production database...\n";
 
@@ -26,7 +25,7 @@ $admin = User::firstOrCreate(
         'username' => 'admin',
         'first_name' => 'Admin',
         'last_name' => 'User',
-        'password' => Hash::make('adminpassword'),
+        'password' => 'adminpassword',
         'role' => 'admin',
         'email_verified_at' => now(),
     ]
@@ -41,7 +40,7 @@ $user = User::firstOrCreate(
         'username' => 'testuser',
         'first_name' => 'Test',
         'last_name' => 'User',
-        'password' => Hash::make('password'),
+        'password' => 'password',
         'role' => 'user',
         'email_verified_at' => now(),
     ]

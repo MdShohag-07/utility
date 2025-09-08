@@ -22,8 +22,11 @@
                      @forelse($secondaryMenuItems ?? [] as $item)
                         <li><a href="{{ $item->url }}" target="{{ $item->target ?? '_self' }}">{{ $item->title }}</a></li>
                      @empty
-                        {{-- Provide fallback or remove if an empty list is acceptable --}}
-                        {{-- <li><a href="#">Placeholder Link</a></li> --}}
+                        {{-- Default navigation items when no menu is configured --}}
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="#about">About</a></li>
                      @endforelse
                 </ul>
             </nav>

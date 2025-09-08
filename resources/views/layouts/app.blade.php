@@ -18,11 +18,8 @@
     {{-- Remove the old asset() link for style.css --}}
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 
-    {{-- LAYOUT FIX CSS - Guaranteed to work --}}
-    <link rel="stylesheet" href="{{ asset('css/layout-fix.css') }}" type="text/css">
-    
-    {{-- Complete CSS with ALL styles - guaranteed to work --}}
-    <link rel="stylesheet" href="{{ asset('css/complete.css') }}" type="text/css">
+    {{-- Simple, working CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
 
     {{-- Stack for page-specific styles --}}
     @stack('styles')

@@ -1,105 +1,82 @@
-{{-- resources/views/public/home.blade.php --}}
+{{-- SIMPLE, WORKING HOMEPAGE --}}
 @extends('layouts.app')
 
-@section('title', $settings['site_name'] ?? config('app.name', 'Utility Site'))
+@section('title', 'Utility Billing System')
 
 @section('content')
-    {{-- Hero Section --}}
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">{{ $settings['site_name'] ?? 'Utility Billing System' }}</h1>
-                <p class="hero-subtitle">Your trusted utility service provider</p>
+<style>
+/* SIMPLE, WORKING STYLES */
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+.hero { background: #005eb8; color: white; padding: 60px 20px; text-align: center; }
+.hero h1 { font-size: 2.5rem; margin: 0 0 10px 0; }
+.hero p { font-size: 1.2rem; margin: 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 60px 20px; background: white; margin: 20px 0; }
+.section:nth-child(even) { background: #f8f9fa; }
+.section h2 { font-size: 2rem; margin: 0 0 20px 0; color: #333; }
+.section p { font-size: 1.1rem; color: #666; margin: 0 0 20px 0; }
+.btn { display: inline-block; padding: 12px 24px; background: #005eb8; color: white; text-decoration: none; border-radius: 5px; margin: 10px 10px 10px 0; }
+.btn:hover { background: #004494; }
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+.service-card { background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.service-icon { width: 60px; height: 60px; background: #005eb8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; }
+.service-card h3 { margin: 0 0 15px 0; color: #333; }
+.service-card p { margin: 0; color: #666; }
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .section h2 { font-size: 1.5rem; }
+    .services { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="hero">
+    <div class="container">
+        <h1>Utility Billing System</h1>
+        <p>Your trusted utility service provider</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <h2>Your Account at Your Fingertips</h2>
+        <p>Sign in for the easiest way to pay your bill, manage your account, watch TV anywhere and more.</p>
+        <a href="{{ route('signup') }}" class="btn">Create a Username</a>
+        <a href="{{ route('login') }}" class="btn">Sign In</a>
+        <p>Not a Spectrum Customer? <a href="#" style="color: #005eb8;">Get Started</a></p>
+    </div>
+
+    <div class="section">
+        <h2>Reliably Fast Internet. Incredible Savings.</h2>
+        <p>Switch to Spectrum for the fastest, most reliable Internet. Add Spectrum Mobile® to enjoy seamless connectivity wherever you go.</p>
+        <a href="#" class="btn">See My Deals</a>
+        <p style="font-size: 0.9rem; color: #999;">Services not available in all areas. Restrictions apply.</p>
+    </div>
+
+    <div class="section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">📶</div>
+                <h3>Internet</h3>
+                <p>High-speed internet for your home and business needs.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📺</div>
+                <h3>TV</h3>
+                <p>Entertainment packages with hundreds of channels.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📞</div>
+                <h3>Phone</h3>
+                <p>Reliable home phone service with great features.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Mobile</h3>
+                <p>Mobile plans with nationwide coverage.</p>
             </div>
         </div>
-    </section>
-
-    {{-- Main Content Sections --}}
-    <div class="main-content">
-        
-        {{-- Account Section --}}
-        <section class="content-section account-section">
-            <div class="container">
-                <div class="section-grid">
-                    <div class="section-content">
-                        <h2 class="section-title">{{ $settings['hp_account_headline'] ?? 'Your Account at Your Fingertips' }}</h2>
-                        <p class="section-description">{{ $settings['hp_account_subtext'] ?? 'Sign in for the easiest way to pay your bill, manage your account, watch TV anywhere and more.' }}</p>
-                        <div class="action-buttons">
-                            <a href="{{ route('signup') }}" class="btn btn-outline-primary">{{ $settings['hp_account_create_text'] ?? 'Create a Username' }}</a>
-                            <a href="{{ route('login') }}" class="btn btn-primary">{{ $settings['hp_account_signin_text'] ?? 'Sign In' }}</a>
-                        </div>
-                        <p class="section-footer"> 
-                            {{ $settings['hp_account_notcustomer_text'] ?? 'Not a Spectrum Customer?' }} 
-                            <a href="{{ $settings['hp_account_getstarted_url'] ?? '#' }}" class="link-primary">{{ $settings['hp_account_getstarted_text'] ?? 'Get Started' }}</a> 
-                        </p>
-                    </div>
-                    <div class="section-image">
-                        <img src="{{ $settings['hp_account_image_url'] ?? asset('images/utility-logo.svg') }}" alt="Account Management" class="section-img">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {{-- Internet Services Section --}}
-        <section class="content-section internet-section">
-            <div class="container">
-                <div class="section-grid reverse">
-                    <div class="section-content">
-                        <h2 class="section-title">{{ $settings['hp_internet_headline'] ?? 'Reliably Fast Internet. Incredible Savings.' }}</h2>
-                        <p class="section-description">{{ $settings['hp_internet_subtext'] ?? 'Switch to Spectrum for the fastest, most reliable Internet. Add Spectrum Mobile® to enjoy seamless connectivity wherever you go.' }}</p>
-                        <a href="{{ $settings['hp_internet_button_url'] ?? '#' }}" class="btn btn-primary">{{ $settings['hp_internet_button_text'] ?? 'See My Deals' }}</a>
-                        <p class="section-disclaimer">{{ $settings['hp_internet_disclaimer'] ?? 'Services not available in all areas. Restrictions apply.' }}</p>
-                    </div>
-                    <div class="section-image">
-                        <img src="{{ $settings['hp_internet_bg_image_url'] ?? asset('images/utility-logo.svg') }}" alt="Internet Services" class="section-img">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {{-- Services Overview Section --}}
-        <section class="content-section services-section">
-            <div class="container">
-                <h2 class="section-title text-center">Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-wifi"></i>
-                        </div>
-                        <h3 class="service-title">Internet</h3>
-                        <p class="service-description">High-speed internet for your home and business needs.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-tv"></i>
-                        </div>
-                        <h3 class="service-title">TV</h3>
-                        <p class="service-description">Entertainment packages with hundreds of channels.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h3 class="service-title">Phone</h3>
-                        <p class="service-description">Reliable home phone service with great features.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3 class="service-title">Mobile</h3>
-                        <p class="service-description">Mobile plans with nationwide coverage.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </div>
+</div>
 @endsection
-
-@push('styles')
-{{-- Styles are now in complete.css --}}
-@endpush
-
-@push('scripts')
-@endpush
